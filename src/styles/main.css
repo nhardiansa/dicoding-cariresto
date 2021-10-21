@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+nav h1,
+.hero h1,
+main h1,
+main h2 {
+  font-family: "Oleo Script Swash Caps", cursive;
+}
+
+nav ul,
+.hero p,
+ul.drawer,
+main p,
+footer {
+  font-family: "Poppins", sans-serif;
+}
+
+footer {
+  background: #2c2c2c;
+  padding-block: 2em;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 426px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 16px;
+  }
+}

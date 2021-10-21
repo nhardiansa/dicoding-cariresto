@@ -1,0 +1,44 @@
+ul.drawer {
+  list-style: none;
+  background-color: rgb(85, 85, 85);
+  padding-block: 1.5em;
+  width: 50%;
+  height: 100vh;
+
+  position: fixed;
+  right: 0;
+  transform: translateX(20em);
+  top: 0px;
+
+  transition: transform 700ms ease-in-out;
+}
+
+ul.drawer.unhide {
+  transform: translateX(0);
+  transition: transform 700ms ease-in-out;
+}
+
+ul.drawer li {
+  text-align: center;
+  padding: 2.5em;
+  border-color: rgb(0, 0, 0);
+}
+
+ul.drawer li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+ul.drawer .close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.7em;
+  color: #fff;
+}
+
+@media screen and (min-width: 426px) {
+  ul.drawer {
+    display: none;
+  }
+}

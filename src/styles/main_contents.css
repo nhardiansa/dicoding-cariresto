@@ -1,0 +1,77 @@
+main {
+  padding-block: 1.5em;
+  padding-inline: 1em;
+  max-width: 1024px;
+  margin: auto;
+}
+
+main h1 {
+  text-align: center;
+  color: #1c1c1c;
+  margin-bottom: 1em;
+}
+
+/* card */
+.card {
+  background-color: #fff;
+  margin-bottom: 1em;
+}
+.card img {
+  width: 100%;
+}
+
+.card .content {
+  padding: 1em;
+}
+
+.card .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1em;
+}
+
+.card .city {
+  display: flex;
+  align-items: flex-end;
+  color: #a8a8a8;
+  margin-bottom: 1em;
+}
+
+.card .rating {
+  display: flex;
+  align-items: center;
+  background-color: #e1651f;
+  width: fit-content;
+  padding-inline: 0.5em;
+  padding-block: 0.2em;
+
+  color: #fff;
+}
+
+.card .rating span {
+  font-size: 1.5rem;
+  margin-right: 0.2em;
+}
+
+.card .description {
+  color: #6a6a6a;
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 426px) {
+  .resto-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5em;
+  }
+
+  .card {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 769px) {
+  .resto-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
