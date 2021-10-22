@@ -19,21 +19,22 @@ restaurants.forEach(e => {
   const el = document.createElement('div')
   const desc = e.description.split(' ').slice(0, 50).join(' ')
   el.classList.add('card')
+  el.setAttribute('tabindex', '0')
   el.innerHTML = `
     <img
       src="${e.pictureId}"
-      alt=""
+      alt="gambar ${e.name}"
     />
     <div class="content">
       <div class="heading">
-        <h2>${e.name}</h2>
+        <h2 aria-label="nama resto">${e.name}</h2>
         <div class="rating">
-          <span class="material-icons"> grade </span>
+          <span class="material-icons" aria-label="rating"> grade </span>
           <p>${e.rating}</p>
         </div>
       </div>
       <div class="city">
-        <span class="material-icons"> place </span>
+        <span class="material-icons" aria-label="kota"> place </span>
         <p>${e.city}</p>
       </div>
       <p class="description">${desc}</p>
@@ -41,7 +42,3 @@ restaurants.forEach(e => {
   `
   listContainer.appendChild(el)
 })
-
-window.onscroll = () => {
-  navbar.classList.toggle('onScroll', window.scrollY > 10)
-}

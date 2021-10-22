@@ -24,7 +24,8 @@ nav ul,
 .hero p,
 ul.drawer,
 main p,
-footer {
+footer,
+a.skip-content {
   font-family: "Poppins", sans-serif;
 }
 
@@ -34,6 +35,20 @@ footer {
   color: #fff;
   font-size: 0.8rem;
   text-align: center;
+}
+
+a.skip-content {
+  position: absolute;
+  text-decoration: none;
+  color: #fff;
+  background: rgb(245, 20, 20);
+  padding: 0.25em;
+  border-radius: 0.25em;
+  left: -100em;
+}
+
+a.skip-content:focus {
+  left: 0;
 }
 
 @media screen and (min-width: 426px) {
