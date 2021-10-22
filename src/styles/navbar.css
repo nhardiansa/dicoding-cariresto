@@ -24,8 +24,12 @@ nav h1 {
   font-size: 2rem;
 }
 
-.hamburger {
-  font-size: 3.7rem;
+button.hamburger {
+  /* font-size: 3.7rem; */
+  padding: 0.85rem;
+  background: rgb(0, 0, 0, 0);
+  border: none;
+  color: #fff;
 }
 
 @media screen and (min-width: 426px) {
@@ -46,6 +50,7 @@ nav h1 {
   nav ul li a {
     text-decoration: none;
     color: #fff;
+    padding-block: 0.75rem;
   }
 
   .hamburger,

@@ -28,14 +28,18 @@ ul.drawer li a {
   text-decoration: none;
   color: #fff;
   font-size: 1.25rem;
+  padding-block: 1.25rem;
 }
 
 ul.drawer .close {
   position: absolute;
   top: 0.1em;
   right: 0.1em;
+  padding: 0.85rem;
+
+  background: rgb(0, 0, 0, 0);
+  border: none;
   color: #fff;
-  font-size: 3.7rem;
 }
 
 @media screen and (min-width: 426px) {
