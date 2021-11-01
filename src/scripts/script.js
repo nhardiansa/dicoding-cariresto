@@ -7,13 +7,13 @@ const drawer = document.querySelector('.drawer')
 
 const listContainer = document.querySelector('.resto-list')
 
-hamburger.addEventListener('click', (e) => {
-  drawer.classList.toggle('unhide')
-})
+// hamburger.addEventListener('click', (e) => {
+//   drawer.classList.toggle('unhide')
+// })
 
-close.addEventListener('click', (e) => {
-  drawer.classList.toggle('unhide')
-})
+// close.addEventListener('click', (e) => {
+//   drawer.classList.toggle('unhide')
+// })
 
 restaurants.forEach(e => {
   const el = document.createElement('div')
@@ -23,7 +23,7 @@ restaurants.forEach(e => {
   el.innerHTML = `
     <img
       src="${e.pictureId}"
-      alt="gambar ${e.name}"
+      alt="${e.name}"
     />
     <div class="content">
       <div class="heading">
