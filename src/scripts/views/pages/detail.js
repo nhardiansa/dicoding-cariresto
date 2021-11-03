@@ -1,3 +1,6 @@
+import RestaurantSource from '../../data/restaurant-source';
+import UrlParser from '../../routes/url-parser';
+
 const Favorite = {
   async render() {
     return `
@@ -6,7 +9,9 @@ const Favorite = {
   },
 
   async afterRender() {
-    console.log('detail');
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const response = await RestaurantSource.restaurantDetail(url.id);
+    console.log(response);
   },
 };
 
