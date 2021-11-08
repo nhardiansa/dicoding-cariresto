@@ -13,10 +13,10 @@ body {
   background: rgba(0, 0, 0, 0.04);
 }
 
-nav h1,
-.hero h1,
-main h1,
-main h2 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Oleo Script Swash Caps", cursive;
 }
 
@@ -25,7 +25,11 @@ nav ul,
 ul.drawer,
 main p,
 footer,
-a.skip-content {
+a.skip-content,
+.food,
+.drink,
+form label,
+form button {
   font-family: "Poppins", sans-serif;
 }
 
@@ -51,12 +55,14 @@ a.skip-content:focus {
   left: 0;
 }
 
+/* for tablet */
 @media screen and (min-width: 426px) {
   html {
     font-size: 14px;
   }
 }
 
+/* for desktop */
 @media screen and (min-width: 769px) {
   html {
     font-size: 16px;

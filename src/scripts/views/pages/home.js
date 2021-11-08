@@ -12,7 +12,6 @@ const Home = {
   async afterRender() {
     const response = await RestaurantSource.restaurantList();
     const restoListContainer = document.querySelector('.resto-list');
-    console.log(response);
     response.forEach((resto) => {
       restoListContainer.innerHTML += createItemTemplate(resto);
     });
