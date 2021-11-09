@@ -16,6 +16,7 @@
       "no-underscore-dangle":"off",
       "import/no-extraneous-dependencies": "off",
       "no-restricted-globals":"off",
-      "linebreak-style": "off"
+      "linebreak-style": "off",
+      "no-alert":"off"
     }
 }

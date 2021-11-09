@@ -1,8 +1,9 @@
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
+import sendReview from '../../utils/post-review';
 import { createDetailTemplate, reviewItemForDetail, inputReview } from '../templates/template-creator';
 
-const Favorite = {
+const Detail = {
   async render() {
     return `
       <h3 id="explore-header" tabindex="0"></h3>
@@ -49,7 +50,45 @@ const Favorite = {
       const reviewItem = reviewItemForDetail(el);
       reviewsContainer.innerHTML += reviewItem;
     });
+
+    // when submit button clicked
+    const sendReviewButton = document.querySelector('.submit button');
+    const inputName = document.querySelector('#name-reviewer');
+    const textareaReview = document.querySelector('#review-text');
+    const restoId = response.id;
+
+    const config = {
+      userName: inputName.value,
+      reviewText: textareaReview.value,
+      restoId,
+    };
+
+    inputName.addEventListener('change', (e) => {
+      config.userName = e.target.value;
+    });
+    textareaReview.addEventListener('change', (e) => {
+      config.reviewText = e.target.value;
+    });
+
+    sendReviewButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      // console.log(config);
+      const responseMessage = await sendReview({
+        restoId,
+        userName: config.userName,
+        reviewText: config.reviewText,
+      });
+
+      if (!responseMessage) {
+        alert('data berhasil ditambahkan, silahkan refresh halaman untuk melihat review anda kembali');
+      } else {
+        alert(`
+        terdapat kesalahan dalam menambahkan review
+        ${JSON.stringify(responseMessage)}
+        `);
+      }
+    });
   },
 };
 
-export default Favorite;
+export default Detail;
