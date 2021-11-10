@@ -85,6 +85,10 @@
   padding-inline: 1em;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .reviews-heading,
 .input-review-container h4 {
   text-align: center;

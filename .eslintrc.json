@@ -17,6 +17,7 @@
       "import/no-extraneous-dependencies": "off",
       "no-restricted-globals":"off",
       "linebreak-style": "off",
-      "no-alert":"off"
+      "no-alert":"off",
+      "no-useless-return":"off"
     }
 }
