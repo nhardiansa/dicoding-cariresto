@@ -7,7 +7,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
 });
 
-self.addEventListener('active', (event) => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(CacheHelper.deleteOldCache());
 });
 

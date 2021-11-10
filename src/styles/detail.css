@@ -168,6 +168,29 @@ form .inputer {
   cursor: pointer;
 }
 
+/* favorite button */
+.favorite-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.favorite-button button {
+  padding: 0.75rem;
+  border-radius: 1rem;
+  border: none;
+
+  color: #fff;
+  background: #e1651f;
+
+  font-size: 1.2rem;
+}
+
+.favorite-button button:hover {
+  cursor: pointer;
+  background: #c75b1c;
+}
+
 /* for desktop */
 @media screen and (min-width: 769px) {
   .menus,

@@ -38,6 +38,7 @@ const createDetailTemplate = (data) => (
       <div class="image-container">
         <img src="https://restaurant-api.dicoding.dev/images/large/${data.pictureId}" alt="resto name" />
       </div>
+      <div class="favorite-button"></div>
       <div class="desc-container">
         <div class="desc-section address">
           <span class="material-icons">storefront</span>
@@ -107,6 +108,53 @@ const inputReview = () => (
   `
 );
 
+const createFavoriteButtonTemplate = () => (
+  `
+    <button>
+      <i class="far fa-star"></i>
+      <span class"text-favorite">tambahkan ke favorit</span>
+    </button>
+  `
+);
+
+const createFavoritedButtonTemplate = () => (
+  `
+    <button>
+      <i class="fas fa-star"></i>
+      <span class"text-favorite">hapus dari favorit</span>
+    </button>
+  `
+);
+
+const createMenusListTemplate = ({
+  foodContainer, drinkContainer, foods, drinks,
+}) => {
+  foods.forEach((el) => {
+    const foodItem = document.createElement('li');
+    foodItem.innerHTML = el.name;
+    foodContainer.appendChild(foodItem);
+  });
+  drinks.forEach((el) => {
+    const drinkItem = document.createElement('li');
+    drinkItem.innerHTML = el.name;
+    drinkContainer.appendChild(drinkItem);
+  });
+};
+
+const createReviewsTemplate = ({ reviewsContainer, reviews }) => {
+  reviews.forEach((el) => {
+    const reviewItem = reviewItemForDetail(el);
+    reviewsContainer.innerHTML += reviewItem;
+  });
+};
+
 export {
-  createItemTemplate, createDetailTemplate, reviewItemForDetail, inputReview,
+  createItemTemplate,
+  createDetailTemplate,
+  reviewItemForDetail,
+  inputReview,
+  createFavoriteButtonTemplate,
+  createFavoritedButtonTemplate,
+  createMenusListTemplate,
+  createReviewsTemplate,
 };

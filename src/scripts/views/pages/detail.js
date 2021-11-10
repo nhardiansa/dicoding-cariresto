@@ -1,7 +1,14 @@
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
-import sendReview from '../../utils/post-review';
-import { createDetailTemplate, reviewItemForDetail, inputReview } from '../templates/template-creator';
+import onSubmitHandler from '../../utils/post-review';
+import {
+  createDetailTemplate,
+  inputReview,
+  createFavoriteButtonTemplate,
+  createFavoritedButtonTemplate,
+  createMenusListTemplate,
+  createReviewsTemplate,
+} from '../templates/template-creator';
 
 const Detail = {
   async render() {
@@ -22,71 +29,34 @@ const Detail = {
     const mainContainer = document.querySelector('#main');
     mainContainer.innerHTML += createDetailTemplate(response);
 
+    // render favorite button
+    const favoriteButtonContainer = document.querySelector('.favorite-button');
+    favoriteButtonContainer.innerHTML = createFavoriteButtonTemplate();
+
     // insert foods & drinks list
-    const { foods, drinks } = response.menus;
-    const foodContainer = document.querySelector('.food');
-    const drinkContainer = document.querySelector('.drink');
-
-    foods.forEach((el) => {
-      const foodItem = document.createElement('li');
-      foodItem.innerHTML = el.name;
-      foodContainer.appendChild(foodItem);
-    });
-    drinks.forEach((el) => {
-      const drinkItem = document.createElement('li');
-      drinkItem.innerHTML = el.name;
-      drinkContainer.appendChild(drinkItem);
+    createMenusListTemplate({
+      foodContainer: document.querySelector('.food'),
+      drinkContainer: document.querySelector('.drink'),
+      foods: response.menus.foods,
+      drinks: response.menus.drinks,
     });
 
-    // render input review's form
+    // render form review's
     const inputReviewContainer = document.querySelector('.input-review-container');
     inputReviewContainer.innerHTML += inputReview();
 
-    // insert reviews
-    const { customerReviews } = response;
-    const reviewsContainer = document.querySelector('.reviews-container');
-
-    customerReviews.forEach((el) => {
-      const reviewItem = reviewItemForDetail(el);
-      reviewsContainer.innerHTML += reviewItem;
+    // insert and render reviews
+    createReviewsTemplate({
+      reviewsContainer: document.querySelector('.reviews-container'),
+      reviews: response.customerReviews,
     });
 
     // when submit button clicked
-    const sendReviewButton = document.querySelector('.submit button');
-    const inputName = document.querySelector('#name-reviewer');
-    const textareaReview = document.querySelector('#review-text');
-    const restoId = response.id;
-
-    const config = {
-      userName: inputName.value,
-      reviewText: textareaReview.value,
-      restoId,
-    };
-
-    inputName.addEventListener('change', (e) => {
-      config.userName = e.target.value;
-    });
-    textareaReview.addEventListener('change', (e) => {
-      config.reviewText = e.target.value;
-    });
-
-    sendReviewButton.addEventListener('click', async (e) => {
-      e.preventDefault();
-      // console.log(config);
-      const responseMessage = await sendReview({
-        restoId,
-        userName: config.userName,
-        reviewText: config.reviewText,
-      });
-
-      if (!responseMessage) {
-        alert('data berhasil ditambahkan, silahkan refresh halaman untuk melihat review anda kembali');
-      } else {
-        alert(`
-        terdapat kesalahan dalam menambahkan review
-        ${JSON.stringify(responseMessage)}
-        `);
-      }
+    onSubmitHandler({
+      inputNameElement: document.querySelector('#name-reviewer'),
+      textareaReviewElement: document.querySelector('#review-text'),
+      submitButtonELement: document.querySelector('.submit button'),
+      restoId: response.id,
     });
   },
 };
