@@ -1,11 +1,10 @@
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
+import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import onSubmitHandler from '../../utils/post-review';
 import {
   createDetailTemplate,
   inputReview,
-  createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate,
   createMenusListTemplate,
   createReviewsTemplate,
 } from '../templates/template-creator';
@@ -30,8 +29,17 @@ const Detail = {
     mainContainer.innerHTML += createDetailTemplate(response);
 
     // render favorite button
-    const favoriteButtonContainer = document.querySelector('.favorite-button');
-    favoriteButtonContainer.innerHTML = createFavoriteButtonTemplate();
+    FavoriteButtonInitiator.init({
+      buttonContainer: document.querySelector('.favorite-button'),
+      restaurant: {
+        id: response.id,
+        city: response.city,
+        name: response.name,
+        pictureId: response.pictureId,
+        rating: response.rating,
+        description: response.description,
+      },
+    });
 
     // insert foods & drinks list
     createMenusListTemplate({

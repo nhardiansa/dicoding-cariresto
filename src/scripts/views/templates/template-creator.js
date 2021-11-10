@@ -1,7 +1,8 @@
 import API_ENPOINT from '../../globals/api-endpoints';
 
 const createItemTemplate = (data) => {
-  const desc = data.description.split(' ').slice(0, 50).join(' ');
+  let desc = data.description;
+  desc = desc.split(' ').slice(0, 50).join(' ');
   return (
     `
     <div class="card" tabindex="0">
@@ -110,7 +111,7 @@ const inputReview = () => (
 
 const createFavoriteButtonTemplate = () => (
   `
-    <button>
+    <button id="favorite-button">
       <i class="far fa-star"></i>
       <span class"text-favorite">tambahkan ke favorit</span>
     </button>
@@ -119,7 +120,7 @@ const createFavoriteButtonTemplate = () => (
 
 const createFavoritedButtonTemplate = () => (
   `
-    <button>
+    <button id="favorite-button">
       <i class="fas fa-star"></i>
       <span class"text-favorite">hapus dari favorit</span>
     </button>

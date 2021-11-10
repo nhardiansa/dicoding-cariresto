@@ -5,6 +5,7 @@ import '../styles/drawer.css';
 import '../styles/hero.css';
 import '../styles/main_contents.css';
 import '../styles/detail.css';
+import '../styles/favorite.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
 
