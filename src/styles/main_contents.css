@@ -28,6 +28,7 @@ main h3 {
 .card a {
   text-decoration: none;
   color: #1c1c1c;
+  padding-block: 0.6em;
 }
 
 .card a:hover {

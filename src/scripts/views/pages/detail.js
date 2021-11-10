@@ -2,6 +2,7 @@ import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parser';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import onSubmitHandler from '../../utils/post-review';
+import SkipToContentInitiator from '../../utils/skip-content-initiator';
 import {
   createDetailTemplate,
   inputReview,
@@ -65,6 +66,12 @@ const Detail = {
       textareaReviewElement: document.querySelector('#review-text'),
       submitButtonELement: document.querySelector('.submit button'),
       restoId: response.id,
+    });
+
+    // skip content initiator
+    SkipToContentInitiator.init({
+      skipContentButton: document.querySelector('.skip-content'),
+      target: document.querySelector('#explore-header'),
     });
   },
 };

@@ -1,4 +1,5 @@
 import FavoriteRestoIdb from '../../data/database';
+import SkipToContentInitiator from '../../utils/skip-content-initiator';
 import { createItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
@@ -19,6 +20,12 @@ const Favorite = {
     }
     restaurants.forEach((restaurant) => {
       restoListContainer.innerHTML += createItemTemplate(restaurant);
+    });
+
+    // skip to content initiator
+    SkipToContentInitiator.init({
+      skipContentButton: document.querySelector('.skip-content'),
+      target: document.querySelector('#explore-header'),
     });
   },
 };
