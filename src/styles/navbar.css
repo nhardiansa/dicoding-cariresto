@@ -50,7 +50,7 @@ button.hamburger {
   nav ul li a {
     text-decoration: none;
     color: #fff;
-    padding-block: 0.75rem;
+    padding-block: 1rem;
   }
 
   .hamburger,
