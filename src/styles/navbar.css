@@ -51,6 +51,7 @@ button.hamburger {
     text-decoration: none;
     color: #fff;
     padding-block: 1rem;
+    padding-inline: 0.25rem;
   }
 
   .hamburger,
